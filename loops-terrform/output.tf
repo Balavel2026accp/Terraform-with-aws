@@ -27,3 +27,17 @@ output "public_dns_dict_AD-tag" {
   tags["Name"] => instance.public_dns
 }
 }
+
+## splat operator.. old way 
+output "public_ip-splat" {
+    description = "public ip "
+    value = aws_instance.myec2vm.*.public_ip
+
+}
+
+## splat operator.. latest way 
+output "public_ip-splat" {
+    description = "public ip "
+    value = aws_instance.myec2vm[*].public_ip
+
+}
