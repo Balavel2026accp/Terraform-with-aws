@@ -5,7 +5,7 @@ output "instance_types" {
 
 output "instance_types_map" {
   description = "validated ins_type"
-  value = {for az, instance in data.aws_ec2_instance_type_offerings.my_instance: az => instance.instance_types }
+  value = keys({for az, instance in data.aws_ec2_instance_type_offerings.my_instance: az => instance.instance_types })
 }
 
 output "instance_types_map-v1" {
