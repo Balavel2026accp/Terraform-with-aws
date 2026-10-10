@@ -1,12 +1,12 @@
 # output "public_dns_list" {
 #     description = "The instance public dns list"
-#     value = [for instance in aws_instance.myec2vm: instance.public_dns]
+#     value = [for instance in aws_instance.myec2vmvmvm: instance.public_dns]
 # }
 
 # output "public_dns_map" {
 #     description = "The instance public dns map"
 #     value = {
-#   for instance in aws_instance.myec2vm :
+#   for instance in aws_instance.myec2vmvmvm :
 #   instance.tags["Name"] => instance.public_dns
 # }
 # }
@@ -14,7 +14,7 @@
 # output "public_dns_dict_AD" {
 #     description = "The instance public dns --AD"
 #     value = {
-#   for c, instance in aws_instance.myec2vm :
+#   for c, instance in aws_instance.myec2vmvmvm :
 #   c => instance.public_dns
 # }
 # }
@@ -23,7 +23,7 @@
 # output "public_dns_dict_AD-tag" {
 #     description = "The instance public dns --AD"
 #     value = {
-#   for key, instance in aws_instance.myec2vm :
+#   for key, instance in aws_instance.myec2vmvmvm :
 #   instance.tags["Name"] => instance.public_dns
 # }
 # }
@@ -55,13 +55,13 @@ Note: Splat expressions do not directly support resources created with
 /*## splat operator.. old way 
 output "public_ip-splat" {
     description = "public ip "
-    value = aws_instance.myec2vm.*.public_ip
+    value = aws_instance.myec2vmvmvm.*.public_ip
 } */ 
 
 # ## splat operator.. latest way 
 # # output "public_ip-splat_latest" {
 # #     description = "public ip "
-# #     value = aws_instance.myec2vm[*].public_ip
+# #     value = aws_instance.myec2vmvmvm[*].public_ip
 # }
 
 output "instance_dns" {
