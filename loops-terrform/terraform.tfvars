@@ -1,4 +1,4 @@
-region = "ap-south-1"
+region = "us-east-1"
 instance_type_list = ["t3.micro"]
 instance_type_map = {
     maven = "t3.micro"
