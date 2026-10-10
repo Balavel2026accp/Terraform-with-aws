@@ -12,12 +12,12 @@ variable "region" {
 #   default = "us-east-1"
 # }
 
-# AWS EC2 Instance Type
-variable "instance_type" {
-  description = "EC2 Instnace Type"
-  type = string
-  default = "t3.micro"
-}
+# # AWS EC2 Instance Type
+# variable "instance_type" {
+#   description = "EC2 Instnace Type"
+#   type = string
+#   default = "t3.micro"
+# }
 
 # AWS EC2 Instance Key Pair
 variable "instance_keypair" {
