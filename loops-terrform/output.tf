@@ -24,7 +24,7 @@ output "public_dns_dict_AD-tag" {
     description = "The instance public dns --AD"
     value = {
   for key, instance in aws_instance.myec2vm :
-  tags["Name"] => instance.public_dns
+  instance.tags["Name"] => instance.public_dns
 }
 }
 
