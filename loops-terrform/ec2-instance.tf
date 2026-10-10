@@ -6,10 +6,15 @@ resource "aws_instance" "myec2vm" {
   #nstance_type = var.instance_type_map["prod"]  # For Map
   user_data = file("${path.module}/app1-install.sh")
   key_name = var.instance_keypair
+  for_each = toset(data.aws_availability_zones.az-ap-south-1.names)
+  availability_zone = each.value
   vpc_security_group_ids = [ aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id   ]
-  count = 2
+  # count = 2
+  # tags = {
+  #   "Name" = "Count-Demo-${count.index}"
+  # }
   tags = {
-    "Name" = "Count-Demo-${count.index}"
+    "Name" = "for_each-Demo-${each.key}"
   }
 }
 
