@@ -64,6 +64,7 @@ output "public_ip-splat" {
 # #     value = aws_instance.myec2vmvmvm[*].public_ip
 # }
 
+// tomap and toset ara to convert all inside as same data type 
 output "instance_dns" {
   description = "PLublic dns for the the instance"
   value = toset([for instance in aws_instance.myec2vm: instance.public_dns ])
@@ -71,5 +72,5 @@ output "instance_dns" {
 
 output "instance_ip" {
   description = "PLublic IP for the the instance"
-  value = { for az, instance in aws_instance.myec2vm: az => instance.public_ip}
+  value = tomap({ for az, instance in aws_instance.myec2vm: az => instance.public_ip})
 }
