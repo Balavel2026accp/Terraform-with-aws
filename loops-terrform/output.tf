@@ -66,10 +66,10 @@ output "public_ip-splat" {
 
 output "instance_dns" {
   description = "PLublic dns for the the instance"
-  value = toset([for instance in aws_instance.myec2: instance.public_dns ])
+  value = toset([for instance in aws_instance.myec2vm: instance.public_dns ])
 }
 
 output "instance_ip" {
   description = "PLublic IP for the the instance"
-  value = { for az, instance in aws_instance.myec2: az => instance.public_ip}
+  value = { for az, instance in aws_instance.myec2vm: az => instance.public_ip}
 }
