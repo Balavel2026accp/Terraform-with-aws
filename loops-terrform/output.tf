@@ -36,7 +36,7 @@ output "public_ip-splat" {
 }
 
 ## splat operator.. latest way 
-output "public_ip-splat" {
+output "public_ip-splat_latest" {
     description = "public ip "
     value = aws_instance.myec2vm[*].public_ip
 
