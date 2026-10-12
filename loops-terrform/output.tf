@@ -76,13 +76,13 @@ output "instance_ip" {
 }
 
 
-output "location "{
+output "location"{
   description = "Test"
   value = [for item in data.aws_ec2_instance_type_offerings.my_instance: item.location]
   
 }
 
-output "id "{
+output "id"{
   description = "Test"
   value = [for item in data.aws_ec2_instance_type_offerings.my_instance: item.id]
   
