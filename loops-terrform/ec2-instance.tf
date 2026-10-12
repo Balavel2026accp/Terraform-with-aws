@@ -1,9 +1,9 @@
-# EC2 Instance
-locals {
-  az = keys({
-    for az, instance in data.aws_ec2_instance_type_offerings.my_instance: az => instance.instance_types 
-   if (instance.instance_types) != 0})
-  }
+# # EC2 Instance
+# locals {
+#   az = keys({
+#     for az, instance in data.aws_ec2_instance_type_offerings.my_instance: az => instance.instance_types 
+#    if (instance.instance_types) != 0})
+#   }
 
 
 
@@ -15,9 +15,9 @@ resource "aws_instance" "myec2vm" {
   user_data = file("${path.module}/app1-install.sh")
   key_name = var.instance_keypair
   #for_each = toset(data.aws_availability_zones.az-ap-south-1.names)
-  # for_each = toset(keys({for az, instance in data.aws_ec2_instance_type_offerings.my_instance: az => instance.instance_types 
-  # if (instance.instance_types) != 0}))
-  for_each = toset(locals.az)
+  for_each = toset(keys({for az, instance in data.aws_ec2_instance_type_offerings.my_instance: az => instance.instance_types 
+  if (instance.instance_types) != 0}))
+  # for_each = toset(locals.az)
   availability_zone = each.value
   vpc_security_group_ids = [ aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id   ]
   # count = 2
