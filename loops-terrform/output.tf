@@ -74,3 +74,17 @@ output "instance_ip" {
   description = "PLublic IP for the the instance"
   value = tomap({ for az, instance in aws_instance.myec2vm: az => instance.public_ip})
 }
+
+
+output "check to fetch the location "{
+  description = "Test"
+  value = [for item in data.aws_ec2_instance_type_offerings.my_instance: item.location]
+  
+}
+
+output "check to fetch the location-id "{
+  description = "Test"
+  value = [for item in data.aws_ec2_instance_type_offerings.my_instance: item.id]
+  
+}
+
