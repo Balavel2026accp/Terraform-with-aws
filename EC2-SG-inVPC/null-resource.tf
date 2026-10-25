@@ -7,14 +7,14 @@ resource "null_resource" "fille-copying-arches-job" {
     user     = "ec2-user"
     password = ""
     host     = aws_eip.Bashtion.public_ip
-    private_key = file("private-key/terrafrom-key.pem")
+    private_key = file("private-key/terraform-key.pem")
 
   }
 
  # file provisioner to copy the pem to the bashtion host /tmp/terraform-key.pem
  provisioner "file" {
-  source      = "private-key/terrafrom-key.pem"
-  destination = "tmp/terrafrom-key.pem"
+  source      = "private-key/terraform-key.pem"
+  destination = "tmp/terraform-key.pem"
 
 #   connection {
 #     type     = "winrm"
@@ -28,7 +28,7 @@ resource "null_resource" "fille-copying-arches-job" {
 
 provisioner "remote-exec" {
     inline = [
-      "sudo chmod 400 tmp/terrafrom-key.pem"
+      "sudo chmod 400 tmp/terraform-key.pem"
     ]
   }
 
