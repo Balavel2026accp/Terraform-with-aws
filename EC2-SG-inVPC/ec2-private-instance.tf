@@ -5,7 +5,7 @@ module "ec2-instance-private" {
 
   for_each = local.private_subnets
   name = "${local.name}-private-instance"
-  count = var.private_instance_count
+  #count = var.private_instance_count
   #monitoring = true
   ami                    = data.aws_ami.amzlinux2.id
   instance_type          = var.instance_type # used to set core count below
