@@ -13,7 +13,7 @@ module "private-security-gp" {
     from_port   = 22
     to_port     = 22
     ip_protocol = "tcp"
-    cidr_ipv4   = module.vpc.vpc_cidr_block
+    cidr_ipv4   = module.vpc-1.vpc_cidr_block
     description = "SSH from VPC CIDR block"
   }
 
@@ -21,7 +21,7 @@ module "private-security-gp" {
     from_port   = 80
     to_port     = 80
     ip_protocol = "tcp"
-    cidr_ipv4   = module.vpc.vpc_cidr_block
+    cidr_ipv4   = module.vpc-1.vpc_cidr_block
     description = "HTTP from VPC CIDR block"
   }
 }
