@@ -10,7 +10,7 @@ locals {
 
   private_subnets = {  
   private_subnet1 = module.vpc-1.private_subnets[0]
-  private_subnet2 = module.vpc-1.private_subnets[2]
+  private_subnet2 = module.vpc-1.private_subnets[1]
   }
 }
 
