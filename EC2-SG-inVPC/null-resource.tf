@@ -14,7 +14,7 @@ resource "null_resource" "fille-copying-arches-job" {
  # file provisioner to copy the pem to the bashtion host /tmp/terraform-key.pem
  provisioner "file" {
   source      = "private-key/terraform-key.pem"
-  destination = "tmp/terraform-key.pem"
+  destination = "/tmp/terraform-key.pem"
 
 #   connection {
 #     type     = "winrm"
@@ -28,8 +28,10 @@ resource "null_resource" "fille-copying-arches-job" {
 
 provisioner "remote-exec" {
     inline = [
-      "sudo chmod 400 tmp/terraform-key.pem"
-    ]
+      "ls -l /tmp/terraform-key.pem",
+      "sudo chmod 400 /tmp/terraform-key.pem",
+      "ls -l /tmp/terraform-key.pem"
+  ]
   }
 
 provisioner "local-exec" {
