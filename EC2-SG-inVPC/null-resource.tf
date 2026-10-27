@@ -37,6 +37,11 @@ provisioner "local-exec" {
     working_dir = "local-exec-output"
     on_failure = continue
     #when = destroy
+
+    /* 
+    This destroy when prtovisioners need to be configured with self count.index for each; 
+    Here the null resource have any self.ip. 
+    */
   }  
 }
 

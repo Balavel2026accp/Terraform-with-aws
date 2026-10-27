@@ -37,5 +37,5 @@ variable "instance_cout" {
 # keyname 
 variable "key_name" {
     type = string
-    default = "terraform-key."
+    default = "terraform-key"
 }
