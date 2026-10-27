@@ -4,7 +4,7 @@ module "private-security-gp" {
   version = "6.0.0"
 
   vpc_id = module.vpc-1.vpc_id
-  description = "sg > ingress open form the VPCcidr block range and egress open to all"
+  description = "sg ingress open form the VPCcidr block range and egress open to all"
   name = var.private-sg-name
 
   # ingress rule 
