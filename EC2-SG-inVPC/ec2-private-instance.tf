@@ -13,7 +13,7 @@ module "ec2-instance-private" {
   #subnet_id              = module.vpc-1.public_subnets[0]
   subnet_id = each.value
   # vpc_security_group_ids = [module.bashtion-security-gp.security_group_id] 
-  vpc_security_group_ids = [module.bashtion-security-gp.id] 
+  vpc_security_group_ids = [module.private-security-gp.id] 
   user_data = file("${path.module}/app1-install.sh")
 
   tags = local.common_tags
