@@ -20,12 +20,13 @@ module "bashtion-security-gp" {
   
   # egress rule 
   egress_rules = {
-    all-outbound = {
-    ip_protocol = "-1"
+  all-outbound = {
+    ip_protocol = "tcp"
+    from_port   = 0
+    to_port     = 65535
     cidr_ipv4   = "0.0.0.0/0"
-    description = "Allow all outbound IPv4 traffic to internet"
+    description = "Allow all outbound TCP traffic to internet"
   }
-  }
-
+}
   tags = local.common_tags
 }
