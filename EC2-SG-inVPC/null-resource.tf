@@ -46,17 +46,6 @@ provisioner "local-exec" {
     */
   }  
 
-
-  provisioner "local-exec" {
-    command    = "echo The resouce creation on: `date` and VPC ID: ${module.vpc-1.vpc_id} >> check_folder/creationTime_vpc_id.txt"
-    working_dir = "check_folder/"
-    on_failure = continue
-    when = destroy
-
-    /* 
-    This destroy when prtovisioners need to be configured with self count.index for each; 
-    Here the null resource have any self.ip. 
-    */
-  }  
+  
 }
 

@@ -6,6 +6,13 @@ resource "aws_eip" "Bashtion" {
   domain   = "vpc"
 
   tags = local.common_tags
+
+  provisioner "local-exec" {
+    command = "echo Destroy time prov `date` >> destroy-time-prov.txt"
+    working_dir = "check_folder/"
+    when = destroy
+    #on_failure = continue
+  }  
 }
 
 /*
