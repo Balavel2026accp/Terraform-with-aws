@@ -1,6 +1,6 @@
 # Creating elb to archestrate the traffic
 locals {
-  instance_count = length(mudule.ec2-instance-private)
+  instance_count = length(module.ec2-instance-private)
 }
 
 module "Dev-elb_http" {

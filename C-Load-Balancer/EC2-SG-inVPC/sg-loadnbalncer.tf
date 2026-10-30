@@ -1,8 +1,7 @@
 # creating security group for load balancer.. 
 module "load-balancer-security-group" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = "1.19.0"
-
+  version = "6.0.0"
 # insert the 2 required variables here
   name = var.sg-LB
   vpc_id = module.vpc-1.vpc_id
@@ -24,5 +23,6 @@ module "load-balancer-security-group" {
       description = "All outbound"
     }
   }
+  
   tags = local.common_tags
 }
