@@ -23,6 +23,8 @@ module "load-balancer-security-group" {
       description = "All outbound"
     }
   }
+
+  
   
   tags = local.common_tags
 }
