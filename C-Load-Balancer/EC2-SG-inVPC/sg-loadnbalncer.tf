@@ -1,0 +1,28 @@
+# creating security group for load balancer.. 
+module "load-balancer-security-group" {
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "1.19.0"
+
+# insert the 2 required variables here
+  name = var.sg-LB
+  vpc_id = module.vpc-1.vpc_id
+
+  ingress_rules = {
+    http-from-vpc = {
+    from_port   = 80
+    to_port     = 80
+    ip_protocol = "tcp"
+    cidr_ipv4   = ["0.0.0.0/0"]
+    description = "HTTP from VPC CIDR block"
+  }
+  }
+
+  egress_rules = {
+    all = {
+      ip_protocol = "-1"
+      cidr_ipv4   = "0.0.0.0/0"
+      description = "All outbound"
+    }
+  }
+  tags = local.common_tags
+}
