@@ -10,7 +10,7 @@ output "elb_name" {
 
 output "elb_dns_name" {
   description = "The DNS name of the ELB"
-  value       = module.Dev-elb_http_dns_name
+  value       = module.Dev-elb_http.dns_name
 }
 
 output "elb_instances" {
