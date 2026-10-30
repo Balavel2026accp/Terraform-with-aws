@@ -14,7 +14,17 @@ module "load-balancer-security-group" {
     cidr_ipv4   = "0.0.0.0/0"
     description = "HTTP from VPC CIDR block"
   }
+
+  port-81-from-internet = {
+      from_port   = 81
+      to_port     = 81
+      ip_protocol = "tcp"
+      cidr_ipv4   = "0.0.0.0/0"
+      description = "Allow Port 81 from internet"
+    }
   }
+
+  
 
   egress_rules = {
     all = {
