@@ -5,7 +5,7 @@ output "elb_id" {
 
 output "elb_name" {
   description = "The name of the ELB"
-  value       = module.Dev-elb_http.elb_name
+  value       = module.Dev-elb_http.elb_dns_name
 }
 
 output "elb_dns_name" {
