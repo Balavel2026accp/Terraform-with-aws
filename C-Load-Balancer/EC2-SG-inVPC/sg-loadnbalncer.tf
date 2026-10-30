@@ -11,7 +11,7 @@ module "load-balancer-security-group" {
     from_port   = 80
     to_port     = 80
     ip_protocol = "tcp"
-    cidr_ipv4   = ["0.0.0.0/0"]
+    cidr_ipv4   = "0.0.0.0/0"
     description = "HTTP from VPC CIDR block"
   }
   }

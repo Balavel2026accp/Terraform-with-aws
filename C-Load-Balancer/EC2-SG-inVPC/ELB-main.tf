@@ -47,7 +47,7 @@ module "Dev-elb_http" {
   // ELB attachments
   number_of_instances = local.instance_count
   #instances           = local.instance_count
-  instances = [for private_instance in module.ec2-instance-private: ec2-instance-private.id]
+  instances = [for private_instance in module.ec2-instance-private: private_instance.id]
 
   tags = local.common_tags
 }
