@@ -7,7 +7,7 @@ module "Dev-elb_http" {
   source  = "terraform-aws-modules/elb/aws"
   version = "4.0.3"
 
-  name = var.load-balancer-name
+  name = local.load_balancer_name
 
   subnets         = [
     module.vpc-1.public_subnets[0], 

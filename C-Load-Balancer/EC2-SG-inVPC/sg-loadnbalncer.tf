@@ -3,7 +3,7 @@ module "load-balancer-security-group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "6.0.0"
 # insert the 2 required variables here
-  name = var.sg-LB
+  name = local.sg_LB
   vpc_id = module.vpc-1.vpc_id
 
   ingress_rules = {

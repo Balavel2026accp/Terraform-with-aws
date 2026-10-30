@@ -12,5 +12,10 @@ locals {
   private_subnet1 = module.vpc-1.private_subnets[0]
   private_subnet2 = module.vpc-1.private_subnets[1]
   }
+
+
+  load_balancer_name = "${var.Environment}-${var.Business-unit}-ELB"
+  sg_LB              = "${var.Environment}-SGLB"
+
 }
 
