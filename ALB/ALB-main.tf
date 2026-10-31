@@ -58,7 +58,7 @@ module "app-alb" {
       }
 
      
-      tags = loca.common_tags
+      tags = local.common_tags
     }
 }   
 
