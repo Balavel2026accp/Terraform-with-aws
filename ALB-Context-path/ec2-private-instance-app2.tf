@@ -1,10 +1,10 @@
-module "ec2-instance-private" {
+module "ec2-instance-private-app2" {
   depends_on = [ module.vpc-1 ]
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "6.4.1"
 
   for_each = local.private_subnets
-  name = "${local.name}-private-instance"
+  name = "${local.name}-private-instance-app2"
   #count = var.private_instance_count
   #monitoring = true
   ami                    = data.aws_ami.amzlinux2.id
@@ -14,7 +14,7 @@ module "ec2-instance-private" {
   subnet_id = each.value
   # vpc_security_group_ids = [module.bashtion-security-gp.security_group_id] 
   vpc_security_group_ids = [module.private-security-gp.id] 
-  user_data = file("${path.module}/app1-install.sh")
+  user_data = file("${path.module}/app2-install.sh")
 
   tags = local.common_tags
 }

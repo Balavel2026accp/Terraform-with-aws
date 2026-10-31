@@ -35,7 +35,7 @@ provisioner "remote-exec" {
   }
 
 provisioner "local-exec" {
-    command    = "echo The resouce creation on: `date` and VPC ID: ${module.vpc-1.vpc_id} >> check_folder/creationTime_vpc_id.txt"
+    command    = "echo The resouce creation on: `date` and VPC ID: ${module.vpc-1.vpc_id} >> creationTime_vpc_id.txt"
     working_dir = "check_folder/"
     on_failure = continue
     #when = destroy

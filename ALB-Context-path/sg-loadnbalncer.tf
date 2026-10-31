@@ -15,13 +15,13 @@ module "load-balancer-security-group" {
     description = "HTTP from VPC CIDR block"
   }
 
-  port-81-from-internet = {
-      from_port   = 81
-      to_port     = 81
-      ip_protocol = "tcp"
-      cidr_ipv4   = "0.0.0.0/0"
-      description = "Allow Port 81 from internet"
-    }
+  https-from-internet = {
+  from_port   = 443
+  to_port     = 443
+  ip_protocol = "tcp"
+  cidr_ipv4   = "0.0.0.0/0"
+  description = "Allow HTTPS (443) from internet"
+}
   }
 
   
