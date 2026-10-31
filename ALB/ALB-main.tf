@@ -6,7 +6,7 @@ module "app-alb" {
   vpc_id  = module.vpc-1.vpc_id
   subnets = module.vpc-1.public_subnets
   load_balancer_type = var.load_balancer_type
-  security_groups = module.load-balancer-security-group.id
+  security_groups = [module.load-balancer-security-group.id]
   tags = local.common_tags
 
   listeners = {
