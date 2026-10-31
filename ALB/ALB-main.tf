@@ -32,9 +32,9 @@ module "app-alb" {
       load_balancing_algorithm_type     = "weighted_random"
       load_balancing_anomaly_mitigation = "on"
       load_balancing_cross_zone_enabled = "use_load_balancer_configuration"
-       protocol_version = "HTTP1"
-       target_id        = aws_instance.this.id
-       port             = 80
+      protocol_version = "HTTP1"
+      #target_id        = aws_instance.this.id
+      port             = 80
 
       target_group_health = {
         dns_failover = {
