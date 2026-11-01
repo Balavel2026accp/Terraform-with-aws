@@ -1,4 +1,4 @@
-esource "aws_route53_record" "mycom" {
+resource "aws_route53_record" "mycom" {
   zone_id = data.aws_route53_zone.my-domain-zone.zone_id
   name    = "cyberapp.com"
   type    = "A"
