@@ -1,4 +1,4 @@
-module "ec2-instance-private-aap1" {
+module "ec2-instance-private-app1" {
   depends_on = [ module.vpc-1 ]
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "6.4.1"
