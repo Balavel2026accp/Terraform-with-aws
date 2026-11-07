@@ -9,7 +9,7 @@ module "acm" {
   validation_method = "DNS"
 
   subject_alternative_names = [
-    "*.CyberaracINfro.com"
+    "*.mbscloudarch.com"
   ]
 
   wait_for_validation = true

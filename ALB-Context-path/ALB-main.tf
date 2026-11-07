@@ -46,7 +46,7 @@ module "app-alb" {
       # Default response for unmatched requests
       fixed_response = {
         content_type = "text/plain"
-        message_body = "Fixed Static message - for Root Context"
+        message_body = "Wellcome to mbscloudarch.com! This is the default response for unmatched requests."
         status_code  = "200"
       }
 
