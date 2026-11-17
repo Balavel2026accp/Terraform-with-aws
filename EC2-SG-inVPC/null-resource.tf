@@ -26,6 +26,8 @@ resource "null_resource" "fille-copying-arches-job" {
  
 }
 
+
+
 provisioner "remote-exec" {
     inline = [
       "ls -l /tmp/terraform-key.pem",
